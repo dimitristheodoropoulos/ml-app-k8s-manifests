@@ -10,6 +10,6 @@ bases:
 # Your CI/CD pipeline will be updated to automatically change the tag here
 # upon a successful build. For example, it might change 'latest' to 'v1.2.3'.
 images:
-- name: your-docker-hub-user/ml-app:latest
-  newName: your-docker-hub-user/ml-app
+- name: dimitris424/ml-app:latest
+  newName: dimitris424/ml-app
   newTag: v1.0.0 # This tag will be dynamically updated by your CI/CD pipeline
