@@ -12,4 +12,4 @@ bases:
 images:
 - name: dimitris424/ml-app:latest
   newName: dimitris424/ml-app
-  newTag: v1.0.0 # This tag will be dynamically updated by your CI/CD pipeline
+  newTag: latest # This tag will be dynamically updated by your CI/CD pipeline
