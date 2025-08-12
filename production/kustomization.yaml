@@ -1,0 +1,15 @@
+# File: production/kustomization.yaml
+# This is the production overlay. It references the base configuration
+# and then overrides the image tag to use the latest version.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+bases:
+- ../base # This tells Kustomize to use the files in the 'base' directory
+
+# This block tells Kustomize to replace the image tag in the deployment.
+# Your CI/CD pipeline will be updated to automatically change the tag here
+# upon a successful build. For example, it might change 'latest' to 'v1.2.3'.
+images:
+- name: your-docker-hub-user/ml-app:latest
+  newName: your-docker-hub-user/ml-app
+  newTag: v1.0.0 # This tag will be dynamically updated by your CI/CD pipeline

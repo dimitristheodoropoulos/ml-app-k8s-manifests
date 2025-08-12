@@ -1,0 +1,8 @@
+# File: base/kustomization.yaml
+# This is the base kustomization file. It simply declares the
+# two manifest files that make up your core application.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- deployment.yaml
+- service.yaml

@@ -1,0 +1,24 @@
+# File: base/deployment.yaml
+# This file defines the core configuration for your application's pods.
+# It uses a placeholder image tag that will be updated by Kustomize.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml-app-deployment
+spec:
+  replicas: 1 # Start with a single replica for your lab environment.
+  selector:
+    matchLabels:
+      app: ml-app
+  template:
+    metadata:
+      labels:
+        app: ml-app
+    spec:
+      containers:
+      - name: ml-app-container
+        # This is the placeholder image tag. The CI/CD pipeline
+        # will update this tag in the 'production' kustomization file.
+        image: your-docker-hub-user/ml-app:latest
+        ports:
+        - containerPort: 5000

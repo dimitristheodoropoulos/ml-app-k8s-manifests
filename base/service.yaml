@@ -1,0 +1,15 @@
+# File: base/service.yaml
+# This file defines a Kubernetes service to expose your application.
+# The NodePort type is ideal for Minikube, making the app accessible from your host machine.
+apiVersion: v1
+kind: Service
+metadata:
+  name: ml-app-service
+spec:
+  selector:
+    app: ml-app
+  type: NodePort
+  ports:
+  - port: 5000
+    targetPort: 5000
+    # A NodePort will be automatically assigned to expose the service
