@@ -17,8 +17,7 @@ spec:
     spec:
       containers:
       - name: ml-app-container
-        # This is the placeholder image tag. The CI/CD pipeline
-        # will update this tag in the 'production' kustomization file.
-        image: your-docker-hub-user/ml-app:latest
+        # This is the image that Kustomize will replace.
+        image: dimitris424/ml-app:latest
         ports:
         - containerPort: 5000
