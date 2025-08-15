@@ -1,12 +1,12 @@
-# File: base/deployment.yaml
-# This file defines the core configuration for your application's pods.
-# It uses a placeholder image tag that will be updated by Kustomize.
+# /home/testuser/Linux-Infrastructure-Automation-Lab/ml_app-k8s-manifests/base/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ml-app-deployment
+  labels:
+    app: ml-app
 spec:
-  replicas: 1 # Start with a single replica for your lab environment.
+  replicas: 1
   selector:
     matchLabels:
       app: ml-app
@@ -16,9 +16,14 @@ spec:
         app: ml-app
     spec:
       containers:
-      - name: ml-app-container
-        # This is the image that Kustomize will replace.
+      - name: ml-app
         image: dimitris424/ml-app:latest
         ports:
         - containerPort: 8000
-        # The env block has been removed for security.
+        env:
+        # Instead of a hardcoded value, we reference a secret
+        - name: GOOGLE_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: google-api-key-secret # The name of the Kubernetes Secret
+              key: api-key # The key within the secret that holds the value
