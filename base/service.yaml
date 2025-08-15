@@ -10,6 +10,6 @@ spec:
     app: ml-app
   type: NodePort
   ports:
-  - port: 5000
-    targetPort: 5000
+  - port: 8000
+    targetPort: 8000
     # A NodePort will be automatically assigned to expose the service

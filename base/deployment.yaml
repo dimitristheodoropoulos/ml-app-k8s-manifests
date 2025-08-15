@@ -20,4 +20,5 @@ spec:
         # This is the image that Kustomize will replace.
         image: dimitris424/ml-app:latest
         ports:
-        - containerPort: 5000
+        - containerPort: 8000
+        # The env block has been removed for security.
